@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> Ported to .NET v10. Not official. Official project by [MaximumADHD](https://github.com/MaximumADHD/Roblox-File-Format)
+>
+> Still needs testing, but holy crap is copilot good, this is the first time I've actually tried using the agent for something.
+> 
+> Now I just need to test and see how many bugs it came up with -_-
+
 # Roblox-File-Format
 A C# library designed to make it easy to create and manipulate files in Roblox's model/place file format!
 
