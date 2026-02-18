@@ -181,8 +181,8 @@ namespace RobloxFiles
                     if (typeName == Name)
                     {
                         FieldInfo directField = instType.GetFields()
-                            .Where(field => field.Name.StartsWith(Name, StringComparison.InvariantCulture))
-                            .Where(field => field.DeclaringType == instType)
+                            .Where(f => f.Name.StartsWith(Name, StringComparison.InvariantCulture))
+                            .Where(f => f.DeclaringType == instType)
                             .FirstOrDefault();
                         
                         if (directField != null)

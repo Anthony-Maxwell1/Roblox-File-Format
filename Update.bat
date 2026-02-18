@@ -10,7 +10,7 @@ echo Version is: %RBX_VERSION%
 echo Updating API...
 cd Update
 
-RobloxFileFormat.Update.exe
+dotnet RobloxFileFormat.Update.dll
 if %errorlevel% NEQ 0 goto updateError
 
 echo Syncing w/ GitHub

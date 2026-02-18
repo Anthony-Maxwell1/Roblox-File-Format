@@ -51,7 +51,7 @@ namespace RobloxFiles.Utility
                 switch (member)
                 {
                     case PropertyInfo prop:  return prop.PropertyType;
-                    case FieldInfo field:    return field.FieldType;
+                    case FieldInfo fieldInfo:return fieldInfo.FieldType;
                     
                     default:                 return null;
                 }

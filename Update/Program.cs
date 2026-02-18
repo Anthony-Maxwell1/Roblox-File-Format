@@ -7,15 +7,23 @@ using RobloxFileFormat.Update.Properties;
 using System.Threading.Tasks;
 using System.Text;
 using System.Diagnostics;
+using System.Runtime.Versioning;
 
 using Microsoft.Win32;
 
 namespace RobloxFileFormat.Update
 {
+    [SupportedOSPlatform("windows")]
     internal class Program
     {
         static async Task Main(string[] args)
         {
+            if (!OperatingSystem.IsWindows())
+            {
+                Console.WriteLine("RobloxFileFormat.Update can only run on Windows.");
+                Environment.Exit(1);
+            }
+
             var outDir = Directory.GetCurrentDirectory();
             var info = new DirectoryInfo(outDir);
             var found = false;
@@ -67,6 +75,9 @@ namespace RobloxFileFormat.Update
                 var request = context.Request;
 
                 var action = request.RawUrl
+                    ?? "/";
+
+                action = action
                     .ToLowerInvariant()
                     .Substring(1);
 
@@ -74,7 +85,7 @@ namespace RobloxFileFormat.Update
 
                 if (action == "exit")
                 {
-                    process.Kill();
+                    process?.Kill();
                     listener.Close();
                     Environment.Exit(0);
                 }

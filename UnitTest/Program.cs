@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace RobloxFiles.UnitTest
@@ -65,14 +66,20 @@ namespace RobloxFiles.UnitTest
             }
             else
             {
-                RobloxFile bin = RobloxFile.Open(@"Files\Binary.rbxl");
-                RobloxFile xml = RobloxFile.Open(@"Files\Xml.rbxlx");
+                string binaryPath = Path.Combine("Files", "Binary.rbxl");
+                string xmlPath = Path.Combine("Files", "Xml.rbxlx");
+
+                RobloxFile bin = RobloxFile.Open(binaryPath);
+                RobloxFile xml = RobloxFile.Open(xmlPath);
 
                 Console.WriteLine("Files opened! Pausing execution for debugger analysis...");
                 Debugger.Break();
 
-                bin.Save(@"Files\Binary_SaveTest.rbxl");
-                xml.Save(@"Files\Xml_SaveTest.rbxlx");
+                string binarySavePath = Path.Combine("Files", "Binary_SaveTest.rbxl");
+                string xmlSavePath = Path.Combine("Files", "Xml_SaveTest.rbxlx");
+
+                bin.Save(binarySavePath);
+                xml.Save(xmlSavePath);
                 
                 Console.WriteLine("Files saved! Pausing execution for debugger analysis...");
                 Debugger.Break();
